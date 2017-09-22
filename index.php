@@ -16,14 +16,14 @@
 <body>
   <div class="container">
     <div class="row">
-      <form method="GET" action="calc.php">
+      <form method="GET">
         <div class="form-group">
           <label>How many ways should the check be split?</label>
-          <input type="number" name="splitnum" class="form-control" min="1" max="99" value='<?php if (isset($_POST['splitnum'])) echo $_POST['splitnum'] ?>'>
+          <input type="number" name="splitnum" class="form-control" min="1" max="99" value='<?php if (isset($_GET['splitnum'])) echo $_POST['splitnum'] ?>'>
         </div>
         <div class="form-group">
           <label>What is the total bill?</label>
-          <input type="number" name="totalcost" class="form-control" min="0" value='<?php if (isset($_POST['totalcost'])) echo $_POST['totalcost'] ?>'>
+          <input type="number" name="totalcost" class="form-control" min="0" value='<?php if (isset($_GET['totalcost'])) echo $_POST['totalcost'] ?>'>
         </div>
         <div class="form-group">
           <label>What percent tip would you like to include?</label>
@@ -42,7 +42,11 @@
         </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
+      <?php
+      if (isset($results)){
+        echo $results;
+      }
+      ?>
     </div>
   </div>
 
