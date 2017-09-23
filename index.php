@@ -19,17 +19,17 @@
       <form method="GET">
         <div class="form-group">
           <label>How many ways should the check be split?</label>
-          <input type="number" name="splitnum" class="form-control" min="1" max="99" value='<?php if (isset($_GET['splitnum'])) echo $_POST['splitnum'] ?>'>
+          <input type="number" name="splitnum" class="form-control" min="1" max="99" value='<?php if (isset($_GET['splitnum'])) echo $_GET['splitnum'] ?>'>
         </div>
         <div class="form-group">
           <label>What is the total bill?</label>
-          <input type="number" name="totalcost" class="form-control" min="0" value='<?php if (isset($_GET['totalcost'])) echo $_POST['totalcost'] ?>'>
+          <input type="number" name="totalcost" class="form-control" step ="any" min="0" value='<?php if (isset($_GET['totalcost'])) echo $_GET['totalcost'] ?>'>
         </div>
         <div class="form-group">
           <label>What percent tip would you like to include?</label>
-          <select class="form-control" name="tipamt">
+          <select class="form-control" name="tipamt" required>
             <option value=".0">0%</option>
-            <option value=".5">5%</option>
+            <option value=".05">5%</option>
             <option value=".10">10%</option>
             <option value=".15">15%</option>
             <option value=".20">20%</option>
@@ -37,22 +37,24 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Round up?</label>
+          <label>Round to nearest dollar?</label>
           <input type="checkbox" name="round" value="yes">Yes.
         </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-      <?php
-      if (isset($results)){
-        echo $results;
-      }
-      ?>
+        <button type="submit" name='submit' class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="row">
+      <?php if (isset($results)): ?>
+        <div class="alert <?=$alert?>" role="alert">
+          <?=$results?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 
 
-<!-- Jquery -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 </body>
 
