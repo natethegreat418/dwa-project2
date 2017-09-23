@@ -45,8 +45,8 @@
     </div>
     <div class="row">
       <?php if (isset($results)): ?>
-        <div class="alert <?=$alert?>" role="alert">
-          <?=$results?>
+        <div class="alert <?=htmlentities($alert, ENT_QUOTES, "UTF-8")?>" role="alert">
+          <?=htmlentities($results, ENT_QUOTES, "UTF-8")?>
         </div>
       <?php endif; ?>
     </div>
