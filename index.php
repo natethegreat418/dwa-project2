@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
           <label>What percent tip would you like to include?</label>
-          <select class="form-control" name="tipamt" required>
+          <select size="6" class="form-control" name="tipamt" required>
             <option value=".0">0%</option>
             <option value=".05">5%</option>
             <option value=".10">10%</option>
