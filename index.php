@@ -1,4 +1,4 @@
-<?php require('getformfetch.php') ?>
+<?php require('tipcalculate.php') ?>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
       <form method="GET">
         <div class="form-group">
           <label>How many ways should the check be split?</label>
-          <input type="number" name="splitnum" class="form-control" min="1" max="99" value='<?php if (isset($_GET['splitnum'])) echo $_GET['splitnum'] ?>' required>
+          <input type="number" name="peoplepaying" class="form-control" min="1" max="99" value='<?php if (isset($_GET['peoplepaying'])) echo $_GET['peoplepaying'] ?>' required>
         </div>
         <div class="form-group">
           <label>What is the total bill?</label>
@@ -27,6 +27,7 @@
         </div>
         <div class="form-group">
           <label>What percent tip would you like to include?</label>
+          <input type="hidden" name="tipamt" value=".0">
           <select size="6" class="form-control" name="tipamt">
             <option value=".0">0%</option>
             <option value=".05">5%</option>
@@ -38,6 +39,7 @@
         </div>
         <div class="form-group">
           <label>Round to nearest dollar?</label>
+          <input type="hidden" name="round" value="no">
           <input type="checkbox" name="round" value="yes">Yes.
         </div>
         <button type="submit" name='submit' class="btn btn-primary">Submit</button>
