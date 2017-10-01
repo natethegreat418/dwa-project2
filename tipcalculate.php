@@ -14,7 +14,7 @@ if (isset($_GET['submit'])){
   $calculate = new TipCalculate();
 
   # Secondary catch for good submit
-  if (empty($totalcost) === true and empty($split) === true) {
+  if (empty($totalcost) === true or empty($peoplepaying) === true) {
     $alert = 'alert-danger';
     $results = 'Something went wrong';
   }
